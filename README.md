@@ -2,6 +2,14 @@
 
 API REST para consulta e gerenciamento de informações de livros, desenvolvida com FastAPI e Python 3.11.
 
+## 🌐 API Online
+
+**🔗 URL Base:** https://books-api-production-192f.up.railway.app
+
+**📚 Documentação Interativa (Swagger):** https://books-api-production-192f.up.railway.app/docs
+
+**📖 Documentação ReDoc:** https://books-api-production-192f.up.railway.app/redoc
+
 ## 📋 Descrição
 
 Este projeto consiste em uma API para gerenciar informações de livros obtidas através de web scraping. A aplicação permite consultar, buscar e filtrar livros através de endpoints REST.
@@ -100,7 +108,15 @@ docker run -p 8000:8000 books-api
 
 ## 📚 Documentação da API
 
-Após iniciar o servidor, acesse:
+### API Online (Railway)
+
+- **Swagger UI**: https://books-api-production-192f.up.railway.app/docs
+- **ReDoc**: https://books-api-production-192f.up.railway.app/redoc
+- **API Base**: https://books-api-production-192f.up.railway.app
+
+### Desenvolvimento Local
+
+Após iniciar o servidor localmente, acesse:
 
 - **Swagger UI**: http://localhost:8000/docs
 - **ReDoc**: http://localhost:8000/redoc
@@ -130,6 +146,19 @@ Busca livros por título ou autor
 
 ### Exemplos de Uso
 
+**API Online:**
+```bash
+# Listar livros
+curl https://books-api-production-192f.up.railway.app/books
+
+# Buscar por título
+curl "https://books-api-production-192f.up.railway.app/books/search/?title=light"
+
+# Obter livro específico
+curl https://books-api-production-192f.up.railway.app/books/0
+```
+
+**Desenvolvimento Local:**
 ```bash
 # Listar livros
 curl http://localhost:8000/books
@@ -155,15 +184,24 @@ Com cobertura:
 pytest tests/ --cov=api --cov-report=html
 ```
 
-## 🐳 Docker
+## � Deploy
 
-### Build da Imagem
+### Railway (Atual)
+
+A API está deployada no Railway:
+- **URL**: https://books-api-production-192f.up.railway.app
+- **Auto-deploy**: Configurado via GitHub
+- **Dockerfile**: Build automático
+
+### Deploy Local com Docker
+
+#### Build da Imagem
 
 ```bash
 docker build -t books-api:latest .
 ```
 
-### Executar Container
+#### Executar Container
 
 ```bash
 docker run -d -p 8000:8000 --name books-api books-api:latest
